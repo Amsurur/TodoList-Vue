@@ -65,7 +65,13 @@ let del = this.todos.filter((e)=>{
 this.editting = this.editting == true ? false:true
 if(this.editting){
   this.editText = todo.text
+  let index = this.todos.findIndex((e)=>e.id == todo.id)
+
 }
+else{
+  todo.text = this.editText
+}
+
    }
  
     
