@@ -42,6 +42,7 @@ export default {
     }
   },
   methods:{
+    ...mapActions(["deleteTodo","editTodo"]),
     addTodo(){
       this.todos.push({
         id:this.id,
@@ -50,7 +51,21 @@ export default {
     }),
       this.todo=""
     },
-
+    deleteTodo(id){
+      console.log(id);
+let del = this.todos.filter((e)=>{
+  console.log(e.id);
+  return e.id != id
+}) 
+   this.todos.pop(del)   },
+   editTextChange(e){
+    this.editText= e.target.value
+   },
+   editTodo(todo){
+this.editting = this.editting == true ? false:true
+if(this.editting){
+  this.editText = todo.text
+}
    }
  
     
